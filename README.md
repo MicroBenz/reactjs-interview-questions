@@ -1,18 +1,24 @@
-# React Interview Questions & Answers
+# รวมคำถามและคำตอบเกี่ยวกับ React
 
-> Click :star:if you like the project. Pull Request are highly appreciated.
+Fork ต้นฉบับภาษาอังกฤษมาจาก [sudheerj](https://github.com/sudheerj/reactjs-interview-questions) repo นี้จะไม่ใช่แปลแบบตรงตัว 100% อาจมีการยกตัวอย่างเพิ่มเติม หรืออธิบายเพิ่มเติมเพื่อให้ชัดเจนยิ่งขึ้น
 
-### Table of Contents
+## เหมาะสำหรับ
 
-| No. | Questions |
+- คนที่กำลังศึกษาหรือสนใจ React repo นี้จะอธิบายตั้งแต่ว่า React คืออะไร มีฟีเจอร์และอะไรที่ต้องรู้บ้าง พร้อมยกตัวอย่างและภาพประกอบ
+- คนที่เขียน React อยู่ ต้องการเข้าใจ React ในเชิงลึกมากขึ้น
+- คนที่กำลังเตรียมตัวสัมภาษณ์งานในบริษัทที่ใช้งาน React เนื่องจากต้นทาง repo ใช้ชื่อว่า **React Interview Questions & Answers** ดังนั้นคำถามและคำตอบร่วม 301 ข้อจึงเป็นขุมทรัพย์ที่ดีในการเตรียมตัว
+
+## สารบัญ
+
+| ข้อ | คำถาม |
 | --- | --------- |
 |   | **Core React** |
-|1  | [What is React?](#what-is-react) |
-|2  | [What are the major features of React?](#what-are-the-major-features-of-react) |
-|3  | [What is JSX?](#what-is-jsx) |
-|4  | [What is the difference between Element and Component?](#what-is-the-difference-between-element-and-component) |
-|5  | [How to create components in React?](#how-to-create-components-in-react) |
-|6  | [When to use a Class Component over a Function Component?](#when-to-use-a-class-component-over-a-function-component) |
+|1  | [React คืออะไร?](#react-คืออะไร) |
+|2  | [ฟีเจอร์เด่นของ React](#ฟีเจอร์เด่นของ-react) |
+|3  | [JSX คืออะไร?](#jsx-คืออะไร?) |
+|4  | [ความแตกต่างระหว่าง Element และ Component](#ความแตกต่างระหว่าง-element-และ-component) |
+|5  | [จะสร้าง component ใน React ได้อย่างไร](#จะสร้าง-component-ใน-react-ได้อย่างไร) |
+|6  | [เมื่อไหร่จะใช้ Class Component แทนที่จะใช้ Function Component](#เมื่อไหร่จะใช้-class-component-แทนที่จะใช้-function-component) |
 |7  | [What are Pure Components?](#what-are-pure-components) |
 |8  | [What is state in React?](#what-is-state-in-react) |
 |9  | [What are props in React?](#what-are-props-in-react) |
@@ -318,24 +324,25 @@
 
 ## Core React
 
-1. ### What is React?
+1. ### React คืออะไร?
 
-    React is an **open-source frontend JavaScript library** which is used for building user interfaces especially for single page applications. It is used for handling view layer for web and mobile apps. React was created by Jordan Walke, a software engineer working for Facebook. React was first deployed on Facebook's News Feed in 2011 and on Instagram in 2012.
+    React เป็น JavaScropt library สำหรับการสร้าง UI โดยนิยมใช้กันมากใน single page applications ถูกนำไปใช้ในการจัดการส่วนที่เป็น view layer หรือ UI ทั้งหมด โดยสามารถนำไปใช้ได้ทั้งบนเว็บ หรือบน mobile apps (React Native)
+    React ถูกสร้างขึ้นโดย Jordan Walke (Software Engineer ของ Google) โดย React ถูกนำไปใช้ครั้งแรกในระบบ News Feed ของ Facebook เมื่อปี 2011 และถูกนำไปใช้ใน Instagram ในปีถัดมา
 
-2. ### What are the major features of React?
+2. ### ฟีเจอร์เด่นของ React
 
-    The major features of React are:
+    ฟีเจอร์หลักของ React นั้นประกอบไปด้วย
 
-    * It uses **VirtualDOM** instead RealDOM considering that RealDOM manipulations are expensive.
-    * Supports **server-side rendering**.
-    * Follows *Unidirectional** data flow or data binding.
-    * Uses **reusable/composable** UI components to develop the view.
+    * **VirtualDOM:** React มีการใช้ VirtualDOM แทนที่จะใช้ DOM จริงๆ ในการแก้ไขและอัพเดต UI เนื่องจากการแก้ไข DOM จริงนั้นช้ามาก React จึงใช้ VirtualDOM ที่มีการสร้าง DOM เสมือนขึ้นมาแล้วทำการแก้ไขใน VirtualDOM ก่อน แล้วจึงนำไปอัพเดตใน DOM จริงๆ อีกที
+    * **รองรับการทำ server-side rendering**
+    * ยึดมั่นใน**หลักการไหลของ data แบบทางเดียว** (Unidirectional data flow)
+    * **สามารถ reuse UI components** ไปใช้งานในหลายๆ จุดได้อย่างง่ายดาย
 
-3. ### What is JSX?
+3. ### JSX คืออะไร?
 
-    *JSX* is a XML-like syntax extension to ECMAScript (the acronym stands for *JavaScript XML*). Basically it just provides syntactic sugar for the `React.createElement()` function, giving us expressiveness of JavaScript along with HTML like template syntax.
+    *JSX (JavaScript XML)* จะมีความคล้ายคลึงกับ XML เป็นเหมือนส่วนขยายของ ECMAScript (มาตรฐานของภาษา JavaScript ที่น่าจะคุ้นเคยกันดีในชื่อว่า ES) โดยหลักการแล้ว JSX ถูกสร้างมาเพื่อให้เราไม่ต้องใช้งาน React ผ่านฟังก์ชัน `React.createElement()` ให้ยุ่งยากปวดหัว แต่มาเขียน JavaScript ควบคู่กับการเขียน HTML เพื่อใช้งาน React แทน
 
-    In the example below text inside `<h1>` tag return as JavaScript function to the render function.
+    ด้านล่างนี้เป็นตัวอย่างของการเขียน JSX ใน React ถ้าสังเกตเราจะเห็นได้ว่ามีการปะปน syntax ของภาษา JavaScript กับ syntax ของ HTML ด้วย
 
     ```jsx harmony
     class App extends React.Component {
@@ -349,11 +356,12 @@
     }
     ```
 
-4. ### What is the difference between Element and Component?
+4. ### ความแตกต่างระหว่าง Element และ Component
 
-    An *Element* is a plain object describing what you want to appear on the screen in terms of the DOM nodes or other components. *Elements* can contain other *Elements* in their props. Creating a React element is cheap. Once an element is created, it is never mutated.
+    *Element* เปรียบเหมือน object ที่เป็นตัวแทนของ DOM node หรือ component อื่นๆ ที่จะโชว์ในเว็บไซต์
+    ภายใน *Element* หนึ่งอันนั้น สามารถมี *Element* อื่นๆ ซ้อนกันได้อีก การสร้าง React element นั้นในเชิงเทคนิคมีการใช้ cost ไม่เยอะนัก เพราะมันถูกสร้างมาแค่ครั้งเดียว และจะไม่โดน mutated (ถูกแก้ไข) อีกเลยตลอดไป
 
-    The object representation of React Element would be as follows:
+    การสร้าง element ของ React ทำได้โดยใช้ฟังก์ชัน `React.createElement()`
 
     ```javascript
     const element = React.createElement(
@@ -363,7 +371,7 @@
     )
     ```
 
-    The above `React.createElement()` function returns an object:
+    ตัวแปร `element` จะเป็น object หน้าตาแบบนี้
 
     ```
     {
@@ -375,20 +383,37 @@
     }
     ```
 
-    And finally it renders to the DOM using `ReactDOM.render()`:
+    และท้ายสุดแล้ว จะถูกนำไป render เป็น HTML อีกที ด้วยการใช้ฟังก์ชัน `ReactDOM.render()` เพื่อนำ React element ไป render เป็น DOM จริงๆ อีกที
 
     ```html
     <div id='login-btn'>Login</div>
     ```
 
-    Whereas a **component** can be declared in several different ways. It can be a class with a `render()` method. Alternatively, in simple cases, it can be defined as a function. In either case, it takes props as an input, and returns an JSX tree as the output:
+    ในขณะที่ **component** นั้น สามารถถูกประกาศได้หลากหลายวิธีมาก
 
-    ```javascript
-    const Button = ({ onLogin }) =>
-      <div id={'login-btn'} onClick={onLogin} />
+    แบบแรกคือสร้างเป็น class ใน JavaScript พร้อมกับเขียน method `render()`
+    
+    ```jsx harmony
+    class Button extends React.Component {
+      render() {
+        return <div id={'login-btn'} onClick={this.props.onLogin} />
+      }
+    }
     ```
 
-    Then JSX gets transpiled to `React.createElement()` function tree:
+    แต่ในบางกรณีที่ตัว component ไม่มีความซับซ้อนมากนัก เราสามารถเขียน component ในรูปแบบของฟังก์ชันแทนได้
+
+    ```javascript
+    const Button = (props) =>
+      <div id={'login-btn'} onClick={props.onLogin} />
+    ```
+
+    สังเกตว่าทั้งคู่นั้น จะมีจุดคล้ายคลึงกันคือ
+
+    - ตัว component จะรับสิ่งที่เรียกว่า `props` เข้าไปเป็น input (ใน function component ตัว props คือ parameter ตัวแรกในฟังก์ชัน / ใน class component ใช้งานได้ผ่านตัวแปร `this.props`)
+    - ทั้งคู่ return JSX tree ออกมา (class component จะ return ในฟังก์ชัน `render()`)
+
+    ในกรณีด้านล่าง JSX จะถูก transpiled เป็นฟังก์ชัน `React.createElement()` หน้าตาดังนี้
 
     ```javascript
     const Button = ({ onLogin }) => React.createElement(
@@ -398,19 +423,21 @@
     )
     ```
 
-5. ### How to create components in React?
+    (ในต้นฉบับได้เขียนไว้ว่า JSX นั้นเสมือนการใส่ synthetic sugar ให้เราเขียน `React.createElement()` ได้ง่ายขึ้นเฉยๆ)
 
-    There are two possible ways to create a component.
+5. ### จะสร้าง component ใน React ได้อย่างไร
 
-    1. **Function Components:** This is the simplest way to create a component. Those are pure JavaScript functions that accept props object as first parameter and return React elements:
+    อย่างที่เกริ่นไว้ในข้อที่ 4 มีสองวิธีในการสร้าง component คือ
+
+    1. **Function Components:** ง่ายที่สุด simple ที่สุด เราแค่เขียน JavaScript function ที่รับ props เป็น parameter ตัวแรก และ return React element (หรือก็คือ JSX tree นั่นแหละ)
 
         ```jsx harmony
         function Greeting({ message }) {
-          return <h1>{`Hello, ${message}`}</h1> 
+          return <h1>{`Hello, ${message}`}</h1>
         }
         ```
 
-    2. **Class Components:** You can also use ES6 class to define a component. The above function component can be written as:
+    2. **Class Components:** ใช้ฟีเจอร์ของ ES6 ที่เราสามารถเขียน class ได้ในภาษา JavaScript เพื่อสร้าง component แทน component `Greeting` ด้านบน สามารถเขียนได้แบบนี้
 
         ```jsx harmony
         class Greeting extends React.Component {
@@ -420,9 +447,11 @@
         }
         ```
 
-6. ### When to use a Class Component over a Function Component?
+6. ### เมื่อไหร่จะใช้ Class Component แทนที่จะใช้ Function Component?
 
-    If the component needs *state or lifecycle methods* then use class component otherwise use function component.
+    ถ้า component ต้องการ *state หรือ lifecycle* ต้องใช้ class component ถ้าไม่ใช้ ใช้แค่ function component ก็เพียงพอแล้ว
+
+    (เสริมจากผู้แปล: ในปี 2019 React มีฟีเจอร์ที่เรียกว่า *hooks* ให้เราสามารถใช้งาน state และใช้งานบาง lifecycle ใน function component ได้เหมือนกัน)
 
 7. ### What are Pure Components?
 
